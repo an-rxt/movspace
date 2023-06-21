@@ -5,7 +5,6 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="./dist/mindar-image-aframe.prod.js"></script>
     <script src="./dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/aframe-transparent-video-shader@1.0.3/dist/aframe-transparent-video-shader.umd.js"></script>
 
     <style>
       body {
@@ -95,8 +94,8 @@
           #creditos{
             color: white;
             position: absolute;
-            font-size: 50px;
-            bottom: 20px;
+            font-size: 40px;
+            bottom: 50px;
           }
     </style>
   </head>
@@ -106,43 +105,32 @@
 
       <div id="example-scanning-overlay" class="hidden">
         <span id="instrucciones">Listo para escanear</span>
-        <span id="creditos">Creditos 1<br>Creditos 2</span>
+        <span id="creditos">Creditos<br>Movilizarte<br>Realidad aumentada - Andres Neme</span>
         <div class="inner">
-      	<img src="./assets/mural-boca2.png"/>
       	<div class="scanline"></div>
         </div>
       </div>
 
       <a-scene mindar-image="uiScanning: #example-scanning-overlay; imageTargetSrc: ./assets/movspace.mind; showStats: false;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        <a-assets>
-          <img id="mural_ojosl" src="./assets/mural-ojosl.png"></img>
-          <img id="mural_ojosr" src="./assets/mural-ojosr.png"></img>
-          <img id="mural_anteojos" src="./assets/mural-anteojos2.png"></img>
-          <img id="mural_boca" src="./assets/mural-boca2.png"></img>
-          <img id="mural_base" src="./assets/mural-base.png"></img>
-        </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
          <a-entity id="target"  mindar-image-target="targetIndex: 0">
 
-           <a-entity rotation="0 0 0" animation="property: rotation;from: 0 0 0; to: -60 0 0; loop: true; dur: 2000; dir: alternate"
-           animation__2="property: scale;from: 1 1 1; to: 2.5 2.5 2.5; dur: 2000; loop: true; dir: alternate">
-             <a-sphere color="#fac637" position="0.32 -0.53 0.05" radius="0.05"></a-sphere>
-             <a-sphere color="#fac637" position="0.33 -0.43 0.05" radius="0.03"></a-sphere>
-             <a-torus color="#fac637"  position="0.33 -0.23 0.05" radius-tubular="0.02" radius="0.1"></a-torus>
+           <a-entity rotation="0 0 0" >
+            <a-sphere src="./assets/spacetxt2.jpg" position="0.23 0.13 0.01" rotation="0 -40 0" radius="0.07"></a-sphere>
+             <a-ring src="./assets/spacetxt1.jpg" rotation="235 180 140" animation="property: rotation;to: 235 180 -220; easing: linear; loop: true; dur: 6000"  position="0.23 0.13 0.01" radius-inner="0.08" radius-outer="0.13"></a-ring>
            </a-entity>
 
            <a-entity rotation="0 0 0" >
-             <a-torus color="#fac637" animation="property: rotation;to: 0 360 0; loop: true; dur: 2000"  position="-0.38 -0.08 0.05" radius-tubular="0.01" radius="0.07"></a-torus>
-             <a-torus color="#fac637" animation="property: rotation;to: 0 360 0; loop: true; dur: 2000"  position="-0.38 -0.33 0.05" radius-tubular="0.02" radius="0.1"></a-torus>
+              <a-sphere src="./assets/spacetxt1.jpg" animation="property: rotation;to: 360 0 0; loop: true; dur: 2000"  position="-0.38 -0.02 0.05" radius="0.1"></a-sphere>
+              <a-sphere src="./assets/spacetxt3.jpg" animation="property: rotation;to: 0 360 0; easing: linear; loop: true; dur: 1000"  position="0.38 0.04 0.05" radius="0.05"></a-sphere>
            </a-entity>
 
-           <a-image src="#mural_ojosl" position="-0.23 0.33 0.05" height="0.1" width="0.1" rotation="0 0 0" animation="property: position; to: -0.2 0.33 0.05; dur: 2000; easing: linear; loop: true; dir: alternate"></a-image>
-           <a-image src="#mural_ojosr" position="0.23 0.33 0.05" height="0.1" width="0.1" rotation="0 0 0" animation="property: position; to: 0.2 0.33 0.05; dur: 2000; easing: linear; loop: true; dir: alternate"></a-image>
-           <a-image src="#mural_anteojos" position="-0.05 0.27 0.25" height="0.33" width="0.9" rotation="0 0 0" animation="property: position; to: -0.05 0.22 0.25; dur: 3000; easing: easeInExpo; loop: true; dir: alternate"></a-image>
-           <a-image src="#mural_boca" position="0 -0.13 0.05" height="0.35" width="0.38" rotation="0 0 0" animation="property: scale;from: 1 0.8 1; to: 1 1.3 1; dur: 3000; easing: easeInSine; loop: true; dir: alternate"></a-image>
-          <a-image src="#mural_base" position="0 0 0" height="1.382" width="1.05" rotation="0 0 0" transparent="false" alphaTest: 0.9 ></a-image>
+           <a-entity rotation="0 0 0" animation="property: rotation;from: 0 90 30; to: 0 130 -30; loop: true; dur: 2000; dir: alternate"
+            animation__2="property: scale;from: 1 1 1; to: 2.5 2.5 2.5; dur: 2000; loop: true; dir: alternate"> -->
+              <a-sphere src="./assets/spacetxt4.jpg" repeat="3" position="0.04 -0.24 0.05" radius="0.2"></a-sphere>
+           </a-entity>
         </a-entity>
 
       </a-scene>
